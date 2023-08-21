@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task App - today section</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <header>
+        <a href="index.html"><i class="fa-solid fa-arrow-left" style="color: #000000;"></i></a>
+        <div id="date"></div>
+        <i class="fa-solid fa-bars" style="color: #000000;" id="menu"></i>
+    </header>
+    <div class="tasks" id="myDiv">
+        <input type="text" id="myInput" placeholder="Add task...">
+        <span id="addBtn">Add</span>
+    </div>
+
+    <ul id="myUl">
+        <li>Silka</li>
+        <li class="done">Silka</li>
+        <li>Silka</li>
+        <li>Silka</li>
+    </ul>
+    <script src="min.js"></script>
+    <script>
+        let nodeList = document.getElementsByTagName("li");
+        let i;
+
+        for(i=0; i<nodeList.length; i++){
+            let span = document.createElement("span");
+            let txt = document.createTextNode("\u00D7");
+            span.className = "close";
+            span.appendChild(txt);
+            nodeList[i].appendChild(span);
+        }
+
+        let close = document.getElementsByClassName("close");
+        for( i=0; i<close.length; i++){
+            close[i].onclick = function(){
+                let div = this.parentElement;
+                div.remove();
+            }
+        }
+
+        let list = document.querySelector("ul");
+        list.addEventListener("click", function(event){
+            if(event.target.tagName === "li"){
+                event.target.classList.toggle('checked');
+            }
+        }. false);
+
+    </script>
+</body>
+</html>
