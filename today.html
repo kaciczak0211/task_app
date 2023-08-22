@@ -52,6 +52,25 @@
             }
         }. false);
 
+        let addBtn = document.getElementById("addBtn");
+
+        addBtn.addEventListener("click", function(){
+            let li = document.createElement("li");
+            let inputValue = document.getElementById("myInput").value;
+            let newTask = document.getElementById("myInput");
+            li.appendChild(newTask);
+
+            if(inputValue ===''){
+                alert("write something");
+            }else {
+                document.getElementById("myUl").appendChild(li);
+
+            }
+
+            document.getElementById("myInput").value = "";
+        })  
+
+
     </script>
 </body>
 </html>
