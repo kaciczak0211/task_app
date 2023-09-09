@@ -5,6 +5,11 @@ let submitBtn = document.getElementById("submitBtn");
 let allTasks = document.getElementById("all-tasks");
 submitBtn.addEventListener("click", function(){
     let li = document.createElement("li");
+    let closeBtn = document.createElement("div")
+    closeBtn.innerHTML = `<p>Edit</p><p>Delete</p>
+    `
+    closeBtn.style.display = "flex"
+    closeBtn.style.gap = "2rem";
     let filedInput = document.getElementById("filed").value;
     let taskName = document.createTextNode(filedInput);
     li.appendChild(taskName);
@@ -13,6 +18,8 @@ submitBtn.addEventListener("click", function(){
         return
     }else{
         document.getElementById("all-tasks").appendChild(li)
+        li.appendChild(closeBtn);
+        // li.appendChild(editBtn);
     }
     //empty input after click
     document.getElementById("filed").value = "";

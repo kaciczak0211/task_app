@@ -71,9 +71,21 @@ ul{
     background-color: #71c7ec;
 }
 li{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     list-style-type: none;
     font-size: 18px;
-    padding: 0.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
     color: white;
 };
 
+.btn{
+    display: flex;
+    margin-left: 0;
+}
+
+p{
+    display: flex;
+}
