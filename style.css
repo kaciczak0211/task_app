@@ -89,3 +89,8 @@ li{
 p{
     display: flex;
 }
+
+.task-style{
+    padding: 1rem;
+}
+
