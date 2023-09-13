@@ -94,3 +94,9 @@ p{
     padding: 1rem;
 }
 
+#button-con{
+    display: flex;
+    flex-direction: row;
+    background-color: white;
+    justify-content: space-around;
+}

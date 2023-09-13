@@ -3,6 +3,8 @@
 let submitBtn = document.getElementById("submitBtn");
 //task list ul
 let allTasks = document.getElementById("all-tasks");
+let buttons = document.getElementById("button-con")
+let text = document.getElementById("text")
 
 let counter = 0;
 function addTask(){
@@ -27,10 +29,13 @@ function addTask(){
         return
     }else{
         document.getElementById("all-tasks").appendChild(li)
-        li.appendChild(deleteBtn);
-        li.appendChild(editBtn);
+        buttons.appendChild(deleteBtn);
+        buttons.appendChild(editBtn);
+        console.log(li.value);
         // li.appendChild(editBtn);
     }
+
+    console.log(filedInput);
 
     //empty input after click
     document.getElementById("filed").value = "";
@@ -38,20 +43,20 @@ function addTask(){
         li.parentNode.removeChild(li);
     })
     editBtn.addEventListener("click", function(){
-        allTasks.contentEditable = "true";
+        // find solution for change only task text
+        li.contentEditable = "true";
         li.style.backgroundColor = "black";
         let doneBtn = document.createElement("button");
         doneBtn.textContent = "done"
         doneBtn.classList = "done"
         doneBtn.style.display = "flex"
         doneBtn.style.gap = "2rem";
-        li.appendChild(doneBtn);
+        buttons.appendChild(doneBtn);
         doneBtn.addEventListener("click", function(){
             doneBtn.remove();
             li.style.backgroundColor = "#71c7ec";
         })
     })
-
 
 }
 
