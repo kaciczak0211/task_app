@@ -3,60 +3,81 @@
 let submitBtn = document.getElementById("submitBtn");
 //task list ul
 let allTasks = document.getElementById("all-tasks");
-let buttons = document.getElementById("button-con")
+// let buttons = document.getElementById("button-con")
 let text = document.getElementById("text")
+
+let editBtn;
+
+//btn styles
+function styleBtn(btn){
+    btn.style.display = "flex";
+    btn.style.backgroundColor = "yellow"
+    btn.style.border = "none";
+};
+
 
 let counter = 0;
 function addTask(){
     let li = document.createElement("li");
+    let buttons = document.createElement("div")
+    buttons.classList = "buttons"
     li.classList = "task-style"
     li.id = 'taks ' + counter++;
     let deleteBtn = document.createElement("button");
+
     deleteBtn.textContent = "delete"
-    deleteBtn.classList = "delete"
-    deleteBtn.style.display = "flex"
-    deleteBtn.style.gap = "2rem";
+    styleBtn(deleteBtn);
     let editBtn = document.createElement("button");
     editBtn.textContent = "edit"
-    editBtn.classList = "edit"
-    editBtn.style.display = "flex"
-    editBtn.style.gap = "2rem";
+    styleBtn(editBtn);
+    let doneBtn = document.createElement("button");
+    doneBtn.textContent = "done"
+    doneBtn.classList = "done"
+    styleBtn(doneBtn);
+    doneBtn.style.display = "none"
     let filedInput = document.getElementById("filed").value;
     let taskName = document.createTextNode(filedInput);
+    filedInput.classList = "text-style"
     li.appendChild(taskName);
+    allTasks.appendChild(buttons);
     if(filedInput === ''){
         // return function if we dont have value
         return
     }else{
         document.getElementById("all-tasks").appendChild(li)
-        buttons.appendChild(deleteBtn);
         buttons.appendChild(editBtn);
-        console.log(li.value);
-        // li.appendChild(editBtn);
+        buttons.appendChild(deleteBtn);
+        buttons.appendChild(doneBtn);
     }
 
-    console.log(filedInput);
 
     //empty input after click
     document.getElementById("filed").value = "";
     deleteBtn.addEventListener("click", function(){
         li.parentNode.removeChild(li);
+        buttons.style.display = "none";
     })
-    editBtn.addEventListener("click", function(){
-        // find solution for change only task text
+    editBtn.addEventListener("click", doneBtnFunction)
+
+    function doneBtnFunction(){
         li.contentEditable = "true";
-        li.style.backgroundColor = "black";
-        let doneBtn = document.createElement("button");
-        doneBtn.textContent = "done"
-        doneBtn.classList = "done"
-        doneBtn.style.display = "flex"
-        doneBtn.style.gap = "2rem";
-        buttons.appendChild(doneBtn);
-        doneBtn.addEventListener("click", function(){
-            doneBtn.remove();
+        if (doneBtn.style.display === "none") {
+            doneBtn.style.display = "block";
+            li.style.backgroundColor = "black";
+          } else {
+            doneBtn.style.display = "none";
             li.style.backgroundColor = "#71c7ec";
+          }
+        doneBtn.addEventListener("click", function(){
+            doneBtn.style.display = "none";
+            li.style.backgroundColor = "#71c7ec";
+            li.contentEditable = "false";
         })
-    })
+
+    }
+
+
+    
 
 }
 

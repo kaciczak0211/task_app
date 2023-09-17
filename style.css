@@ -94,9 +94,18 @@ p{
     padding: 1rem;
 }
 
-#button-con{
+button{
     display: flex;
-    flex-direction: row;
-    background-color: white;
-    justify-content: space-around;
+    flex-direction: column;
+}
+
+
+#text{
+    color: pink;
+}
+
+.buttons{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
 }
