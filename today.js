@@ -4,7 +4,9 @@ let submitBtn = document.getElementById("submitBtn");
 //task list ul
 let allTasks = document.getElementById("all-tasks");
 // let buttons = document.getElementById("button-con")
-let text = document.getElementById("text")
+let text = document.getElementById("text");
+
+let filed = document.getElementById("filed");
 
 let editBtn;
 
@@ -38,6 +40,7 @@ function addTask(){
     let filedInput = document.getElementById("filed").value;
     let taskName = document.createTextNode(filedInput);
     filedInput.classList = "text-style"
+    // enter option
     li.appendChild(taskName);
     allTasks.appendChild(buttons);
     if(filedInput === ''){
@@ -67,23 +70,37 @@ function addTask(){
           } else {
             doneBtn.style.display = "none";
             li.style.backgroundColor = "#71c7ec";
+            li.contentEditable = "false";
           }
         doneBtn.addEventListener("click", function(){
             doneBtn.style.display = "none";
             li.style.backgroundColor = "#71c7ec";
             li.contentEditable = "false";
+
         })
 
-    }
+        li.addEventListener("keypress", function(e){
+            if(e.key === "Enter"){
+                doneBtn.style.display = "none";
+                li.style.backgroundColor = "#71c7ec";
+                li.contentEditable = "false";
+                console.log("enter")
+            }
+        })
+
+    };
 
 
     
 
 }
 
-
-
-
-
-
-
+filed.addEventListener("keypress", function(e){
+    if(e.key === "Enter" && filed.value != ""){
+        e.preventDefault();
+        submitBtn.click();
+        console.log("click")
+    }else{
+        return
+    }
+});
