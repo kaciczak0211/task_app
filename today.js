@@ -66,7 +66,7 @@ function addTask(){
         li.contentEditable = "true";
         if (doneBtn.style.display === "none") {
             doneBtn.style.display = "block";
-            li.style.backgroundColor = "black";
+            li.style.backgroundColor = "red";
           } else {
             doneBtn.style.display = "none";
             li.style.backgroundColor = "#71c7ec";
