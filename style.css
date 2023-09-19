@@ -81,7 +81,7 @@ li{
     font-size: 18px;
     padding-left: 1rem;
     padding-right: 1rem;
-    color: white;
+    text-decoration: "none";
 };
 
 .btn{
@@ -95,6 +95,7 @@ p{
 
 .task-style{
     padding: 1rem;
+    border: 2px solid white;
 }
 
 
@@ -107,6 +108,8 @@ p{
     display: flex;
     justify-content: flex-end;
     background-color: #71c7ec;
+    border: 1px solid white;
+
 }
 
 #all-tasks{

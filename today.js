@@ -27,6 +27,10 @@ function addTask(){
     li.id = 'taks ' + counter++;
     let deleteBtn = document.createElement("button");
 
+    let completeTask = document.createElement("button");
+    completeTask.textContent = "complete?";
+    styleBtn(completeTask);
+
     deleteBtn.textContent = "delete"
     styleBtn(deleteBtn);
     let editBtn = document.createElement("button");
@@ -51,6 +55,7 @@ function addTask(){
         buttons.appendChild(editBtn);
         buttons.appendChild(deleteBtn);
         buttons.appendChild(doneBtn);
+        buttons.appendChild(completeTask);
     }
 
 
@@ -67,6 +72,9 @@ function addTask(){
         if (doneBtn.style.display === "none") {
             doneBtn.style.display = "block";
             li.style.backgroundColor = "red";
+            li.style.textDecoration = "none";
+            li.style.color = "black"
+            completeTask.style.display = "flex";
           } else {
             doneBtn.style.display = "none";
             li.style.backgroundColor = "#71c7ec";
@@ -89,6 +97,14 @@ function addTask(){
         })
 
     };
+
+    completeTask.addEventListener("click", function(){
+        li.style.textDecoration = "line-through";
+        completeTask.style.display = "none";
+        li.style.color = "#439d96";
+        }
+    
+    )
 
 
     
