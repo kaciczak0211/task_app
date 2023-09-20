@@ -107,9 +107,11 @@ p{
 .buttons{
     display: flex;
     justify-content: flex-end;
-    background-color: #71c7ec;
-    border: 1px solid white;
+    background-color: yellow;
+}
 
+button:hover{
+    cursor: pointer;
 }
 
 #all-tasks{

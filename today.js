@@ -49,7 +49,9 @@ function addTask(){
     allTasks.appendChild(buttons);
     if(filedInput === ''){
         // return function if we dont have value
+        alert("write task name")
         return
+        
     }else{
         document.getElementById("all-tasks").appendChild(li)
         buttons.appendChild(editBtn);
@@ -102,6 +104,7 @@ function addTask(){
         li.style.textDecoration = "line-through";
         completeTask.style.display = "none";
         li.style.color = "#439d96";
+        li.style.backgroundColor = "#fdf0e4";
         }
     
     )
@@ -116,7 +119,8 @@ filed.addEventListener("keypress", function(e){
         e.preventDefault();
         submitBtn.click();
         console.log("click")
-    }else{
+    }else if(e.key === "Enter" && filed.value === ""){
+        alert("Write task name!")
         return
     }
 });
